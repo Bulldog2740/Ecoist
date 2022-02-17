@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.ecoist.market.presentation.splash.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_categoryMainListFragment"
+            app:destination="@id/categoryMainListFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/categoryMainListFragment"
+        android:name="com.ecoist.market.presentation.category.main.CategoryMainListFragment"
+        android:label="CategoryMainListFragment"
+        tools:layout="@layout/fragment_category_main_list">
+        <action
+            android:id="@+id/action_categoryListFragment_to_categoryCommonListFragment"
+            app:destination="@id/categoryCommonListFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryCommonListFragment"
+        android:name="com.ecoist.market.presentation.category.common.CategoryCommonListFragment"
+        android:label="CategoryCommonListFragment">
+        <argument
+            android:name="category"
+            android:defaultValue="@null"
+            app:argType="com.ecoist.market.data.roomdb.CategoryModel"
+            app:nullable="true" />
+        <argument
+            android:name="categoryId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_categoryCommonListFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.ecoist.market.presentation.product.single.ProductFragment"
+        android:label="ProductFragment">
+        <argument
+            android:name="product"
+            app:argType="com.ecoist.market.data.roomdb.ProductModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.ecoist.market.presentation.product.list.ProductListFragment"
+        android:label="ProductListFragment">
+        <action
+            android:id="@+id/action_productListFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <argument
+            android:name="category"
+            android:defaultValue="@null"
+            app:argType="com.ecoist.market.data.roomdb.CategoryModel"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/bucketFragment"
+        android:name="com.ecoist.market.presentation.product.Bucket"
+        android:label="fragment_bucket"
+        tools:layout="@layout/fragment_bucket" >
+        <action
+            android:id="@+id/action_bucketFragment_to_productFragment"
+            app:destination="@id/productFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/bucketFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="product"
+            app:argType="com.ecoist.market.data.roomdb.ProductModel" />
+        <action
+            android:id="@+id/action_bucketFragment_to_sayYourName"
+            app:destination="@id/sayYourName" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactsFramgent"
+        android:name="com.ecoist.market.ContactsFramgent"
+        android:label="fragment_contacts_framgent"
+        tools:layout="@layout/fragment_contacts_framgent" />
+    <fragment
+        android:id="@+id/favorites2"
+        android:name="com.ecoist.market.presentation.product.Favorites"
+        tools:layout="@layout/favorites_fragment"
+        android:label="Favorites" >
+        <argument
+            android:name="product"
+            app:argType="com.ecoist.market.data.roomdb.ProductModel" />
+        <action
+            android:id="@+id/action_favorites2_to_productFragment"
+            app:destination="@id/productFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/favorites2"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <dialog
+        android:id="@+id/sayYourName"
+        android:name="com.ecoist.market.presentation.product.SayYourName"
+        android:label="SayYourName" >
+        <action
+            android:id="@+id/action_sayYourName_to_bucketFragment"
+            app:destination="@id/bucketFragment" />
+    </dialog>
+</navigation>

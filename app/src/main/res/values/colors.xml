@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#198700</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="cnb_default_badge_color">#F44336</color>
+
+
+    <color name="cnb_default_unselected_color">#696969</color>
+    <color name="colorPrimaryDark">#E281C784</color>
+    <color name="black">#010107</color>
+    <color name="colorAccent">#1D951F</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="blank">#696969</color>
+
+    <color name="home">#C8E6C9</color>
+    <color name="activity">#1D951F</color>
+    <color name="favorites">#1D951F</color>
+    <color name="settings">#03EA3D</color>
+    <color name="material">#CCFF90</color>
+    <color name="material2">#F4FF81</color>
+    <color name="material3">#FFFF8D</color>
+</resources>
