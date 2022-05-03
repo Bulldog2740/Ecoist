@@ -30,7 +30,9 @@ class CategoryRepositoryEco(
             },
             saveFetchResult = { item ->
                 CategoryMapper.mapModel(item).also { dao.insert(*it.toTypedArray()) }
-            }
+            },
+            onFetchFailed = {},
+            shouldFetch = {true}
         )
     }
 
