@@ -32,14 +32,14 @@ class ProductListViewModel(
 
      val productLitlEmitter = MutableLiveData<List<Bucket.LilProduct>>()
 
-    fun listProducts(idParent: Long) = repo.getProductByIdFlowx(idParent).asLiveData()
+    fun listProducts(idParent: Long) = repo.getProductById(idParent).asLiveData()
 
     fun  favoriteLatestNews() =
-        repo.getProductsFlow().map { news -> news.filter { it.favorites } }
+        repo.getProducts().map { news -> news.filter { it.favorites } }
     fun  bucket() =
-        repo.getProductsFlow().map { news -> news.filter { it.bucket } }
+        repo.getProducts().map { news -> news.filter { it.bucket } }
 
-    fun product(id: Long) = repo.getProductByIdFlowxSingle(id)
+    fun product(id: Long) = repo.getProductByIdOne(id)
 
     fun checkFav(mod: ProductModel) {
         mod.updateLike()

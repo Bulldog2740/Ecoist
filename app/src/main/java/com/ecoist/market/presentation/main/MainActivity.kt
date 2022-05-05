@@ -7,10 +7,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ecoist.market.R
-import com.ecoist.market.data.roomdb.CategoryRepositoryEco
-import com.ecoist.market.data.roomdb.EcoDataBase
+import com.ecoist.market.data.roomdb.DataBase
 import com.ecoist.market.domain.analytics.AppLogger
-import com.ecoist.market.domain.repository.CategoryRepository
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch
 
@@ -26,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         AppLogger.debug(TAG, "onCreate()")
         var van = findNavController(R.id.navHostFragment)
-       EcoDataBase.init(applicationContext)
+       DataBase.init(applicationContext)
         lifecycleScope.launch {
 
         }

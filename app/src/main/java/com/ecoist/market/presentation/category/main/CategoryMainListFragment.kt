@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ecoist.market.R
-import com.ecoist.market.data.roomdb.CategoryModel
+import com.ecoist.market.data.model.CategoryModel
 import com.ecoist.market.data.roomdb.RoomCatListAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

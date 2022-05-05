@@ -4,10 +4,6 @@ import androidx.annotation.Keep
 import com.ecoist.market.data.response.CategoryResponse
 import com.ecoist.market.data.response.PhotoResponse
 import com.ecoist.market.data.response.ProductResponse
-import com.ecoist.market.data.roomdb.CategoryModel
-import com.ecoist.market.data.roomdb.PhotoModel
-import com.ecoist.market.data.roomdb.ProductModel
-import com.ecoist.market.data.roomdb.apiForTelegram
 import kotlinx.coroutines.Deferred
 import retrofit2.http.*
 
@@ -18,8 +14,6 @@ interface ApiService {
     @GET("tss/category?a=list")
     suspend fun getAllCategories(): List<CategoryResponse>
 
-    @GET("tss/category?a=list")
-    fun getAllCategoriesDeffAsync(): Deferred<List<CategoryResponse>>
 
     @GET("tss/category?a=list_where&col=idParent")
     suspend fun getChildCategories(@Query("idParent") idParent: Long): List<CategoryResponse>

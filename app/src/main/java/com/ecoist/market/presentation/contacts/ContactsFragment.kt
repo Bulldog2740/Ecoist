@@ -1,17 +1,16 @@
-package com.ecoist.market
+package com.ecoist.market.presentation.contacts
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
+import com.ecoist.market.R
 import com.ecoist.market.presentation.base.BaseBottomTabFragment
 
-class ContactsFramgent : BaseBottomTabFragment() {
+class ContactsFragment : BaseBottomTabFragment() {
 
 
     override fun onCreateView(

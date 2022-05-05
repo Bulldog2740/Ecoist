@@ -11,7 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ecoist.market.R
-import com.ecoist.market.data.roomdb.CategoryModel
+import com.ecoist.market.data.model.CategoryModel
 import com.ecoist.market.data.roomdb.Resource
 import com.ecoist.market.data.roomdb.RoomCatListAdapter
 import org.koin.android.ext.android.inject

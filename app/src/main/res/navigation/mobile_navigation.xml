@@ -86,7 +86,7 @@
     </fragment>
     <fragment
         android:id="@+id/contactsFramgent"
-        android:name="com.ecoist.market.ContactsFramgent"
+        android:name="com.ecoist.market.presentation.contacts.ContactsFragment"
         android:label="fragment_contacts_framgent"
         tools:layout="@layout/fragment_contacts_framgent" />
     <fragment

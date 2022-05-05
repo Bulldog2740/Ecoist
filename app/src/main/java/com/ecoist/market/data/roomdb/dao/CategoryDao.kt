@@ -1,8 +1,9 @@
-package com.ecoist.market.data.roomdb
+package com.ecoist.market.data.roomdb.dao
 
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.ecoist.market.data.model.CategoryModel
 import kotlinx.coroutines.flow.Flow
 
 

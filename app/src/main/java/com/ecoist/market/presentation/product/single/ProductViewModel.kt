@@ -31,7 +31,7 @@ class ProductViewModel(
     private val productEmitter = MutableLiveData<Product>()
     private val photoEmitter = MutableLiveData<List<Photo>>()
 
-    fun product(id: Long) = repos.getProductByIdFlowxSingle(id).asLiveData()
+    fun product(id: Long) = repos.getProductByIdOne(id).asLiveData()
 
      fun  photo(id: String?) =reposik.listPhoto(id).asLiveData()
     fun checkFav(mod: ProductModel) {
