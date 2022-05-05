@@ -13,19 +13,5 @@ class CategoryCommonListViewModel(
     application: Application,
     private val repo: CategoryRepository
 ) : BaseViewModel(application) {
-
-    val categoryListLiveDataRoom: LiveData<List<CategoryModel>>
-        get() = categoryListEmitterRoom
-    private val categoryListEmitterRoom = MutableLiveData<List<CategoryModel>>()
-
     fun resource(parentId:Long)=repo.getItems(parentId).asLiveData()
-
-/*
-    fun liveDate(parentCategoryId: Long) = repo.getLiveDateById(parentCategoryId)
-
-    fun initCommonCat(parentCategoryId: Long) {
-        viewModelScope.launch(io) {
-            repo.initCommon(parentCategoryId)
-        }
-    }*/
 }

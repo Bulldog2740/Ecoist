@@ -14,12 +14,11 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ecoist.market.R
-import com.ecoist.market.data.roomdb.PhotoModel
-import com.ecoist.market.data.roomdb.ProductModel
-import com.ecoist.market.data.roomdb.Resource
+import com.ecoist.market.data.model.PhotoModel
+import com.ecoist.market.data.model.ProductModel
+import com.ecoist.market.util.Resource
 import com.ecoist.market.databinding.FragmentProductBinding
 import com.ecoist.market.presentation.product.adapter.PhotoListAdapter
-import com.ecoist.market.presentation.product.list.ProductListViewModel
 import org.koin.android.ext.android.inject
 
 class ProductFragment : Fragment() {
@@ -55,7 +54,7 @@ class ProductFragment : Fragment() {
         bind.model = args.product
         bind.executePendingBindings()
         bind.nabBuy.setOnClickListener {
-            viewModel.buyEcoTovar(args.product)
+            viewModel.buyProduct(args.product)
         }
         bind.nablike.setOnClickListener {
             viewModel.checkFav(args.product)

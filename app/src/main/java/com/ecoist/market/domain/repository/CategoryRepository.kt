@@ -4,7 +4,7 @@ import com.ecoist.market.data.mapper.CategoryMapper
 import com.ecoist.market.data.model.CategoryModel
 import com.ecoist.market.data.response.CategoryResponse
 import com.ecoist.market.data.roomdb.DataBase
-import com.ecoist.market.data.roomdb.Resource
+import com.ecoist.market.util.Resource
 import com.ecoist.market.data.roomdb.networkBoundResource
 import com.ecoist.market.domain.api.ApiService
 import kotlinx.coroutines.*

@@ -1,4 +1,4 @@
-package com.ecoist.market.data.roomdb
+package com.ecoist.market.data.model
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

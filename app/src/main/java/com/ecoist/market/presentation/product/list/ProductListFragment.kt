@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.ecoist.market.R
-import com.ecoist.market.data.roomdb.ProductModel
-import com.ecoist.market.data.roomdb.Resource
+import com.ecoist.market.data.model.ProductModel
+import com.ecoist.market.util.Resource
 import com.ecoist.market.presentation.product.adapter.ProductListAdapter
 import com.ecoist.market.util.oneTimeCoroutineScope
 import kotlinx.coroutines.Dispatchers

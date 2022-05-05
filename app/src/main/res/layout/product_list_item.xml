@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.ecoist.market.data.roomdb.ProductModel" />
+            type="com.ecoist.market.data.model.ProductModel" />
 
         <variable
             name="viewModel"
@@ -90,7 +90,7 @@
             android:src="@drawable/addbucket"
             android:clickable="true"
             android:focusable="true"
-            android:onClick="@{()->viewModel.buyEcoTovar(model)}"
+            android:onClick="@{()->viewModel.buyProduct(model)}"
             app:fabSize="mini"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/likoc"

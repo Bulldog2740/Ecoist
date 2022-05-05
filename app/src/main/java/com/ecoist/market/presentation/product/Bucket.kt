@@ -5,15 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.asFlow
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ecoist.market.R
-import com.ecoist.market.data.roomdb.ProductModel
+import com.ecoist.market.data.model.ProductModel
 import com.ecoist.market.databinding.FragmentBucketBinding
 import com.ecoist.market.presentation.base.BaseBottomTabFragment
 import com.ecoist.market.presentation.product.adapter.ProductListAdapter
@@ -21,7 +18,6 @@ import com.ecoist.market.presentation.product.list.ProductListViewModel
 import com.ecoist.market.util.oneTimeCoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
 

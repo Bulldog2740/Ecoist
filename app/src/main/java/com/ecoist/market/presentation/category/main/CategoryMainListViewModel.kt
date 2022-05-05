@@ -7,15 +7,8 @@ import com.ecoist.market.presentation.base.BaseViewModel
 
 class CategoryMainListViewModel(
     application: Application,
-    private val repository: CategoryRepository, private val repo: CategoryRepository
+    repository: CategoryRepository
 ) : BaseViewModel(application) {
 
-  //  val liveDate = repo.getLiveDateById(1)
-    val resource=repo.getItems(1).asLiveData()
-
-    /*fun initMain() {
-        viewModelScope.launch(io) {
-            repo.getTopLevelCategoriesRoom()
-        }
-    }*/
+    val resource = repository.getItems(1).asLiveData()
 }

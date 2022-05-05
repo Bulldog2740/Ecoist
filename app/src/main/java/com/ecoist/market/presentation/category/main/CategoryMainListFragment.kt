@@ -11,14 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ecoist.market.R
 import com.ecoist.market.data.model.CategoryModel
-import com.ecoist.market.data.roomdb.RoomCatListAdapter
+import com.ecoist.market.presentation.category.adapter.CatListAdapter
+import com.ecoist.market.util.Resource
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CategoryMainListFragment : Fragment(), RoomCatListAdapter.Listener {
+class CategoryMainListFragment : Fragment(), CatListAdapter.Listener {
     private val viewModel: CategoryMainListViewModel by viewModel()
-    private val categoryListObserver = Observer<List<CategoryModel>>(::handleCategoryListModel)
+    private val categoryListObserver = Observer<Resource<List<CategoryModel>>>(::handleCategoryListModel)
     private var recyclerView: RecyclerView? = null
-    private val adapter = RoomCatListAdapter(this)
+    private val adapter = CatListAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,14 +35,13 @@ class CategoryMainListFragment : Fragment(), RoomCatListAdapter.Listener {
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager =
             LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)
-        viewModel.resource.observe(viewLifecycleOwner) { result ->
-            adapter.submitList(result.data)
-        }
+        viewModel.resource.observe(viewLifecycleOwner,categoryListObserver)
     }
 
-    private fun handleCategoryListModel(categoryList: List<CategoryModel>?) {
+
+    private fun handleCategoryListModel(categoryList: Resource<List<CategoryModel>>?) {
         if (categoryList == null) return
-        adapter.submitList(categoryList)
+        adapter.submitList(categoryList.data)
     }
 
     override fun onClick(category: CategoryModel) {

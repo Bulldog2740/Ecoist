@@ -12,17 +12,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ecoist.market.R
 import com.ecoist.market.data.model.CategoryModel
-import com.ecoist.market.data.roomdb.Resource
-import com.ecoist.market.data.roomdb.RoomCatListAdapter
+import com.ecoist.market.util.Resource
+import com.ecoist.market.presentation.category.adapter.CatListAdapter
 import org.koin.android.ext.android.inject
 
-class CategoryCommonListFragment : Fragment(), RoomCatListAdapter.Listener {
+class CategoryCommonListFragment : Fragment(), CatListAdapter.Listener {
 
     private val args: CategoryCommonListFragmentArgs by navArgs()
     private val viewModel: CategoryCommonListViewModel by inject()
     private val categoryListObserver = Observer<Resource<List<CategoryModel>>>(::handleCategoryList)
     private var recyclerView: RecyclerView? = null
-    private val adapter = RoomCatListAdapter(this)
+    private val adapter = CatListAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,7 +52,6 @@ class CategoryCommonListFragment : Fragment(), RoomCatListAdapter.Listener {
 
     private fun handleCategoryList(categoryList: Resource<List<CategoryModel>>?) {
         if (categoryList == null) return
-
         adapter.submitList(categoryList.data)
 }
 }

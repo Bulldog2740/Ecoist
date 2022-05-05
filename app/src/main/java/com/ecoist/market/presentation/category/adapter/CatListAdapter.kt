@@ -1,4 +1,4 @@
-package com.ecoist.market.data.roomdb
+package com.ecoist.market.presentation.category.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +15,8 @@ import com.ecoist.market.data.model.CategoryModel
 /**
  *Created by Yehor Kudimov on 4/27/2021.
  */
-class RoomCatListAdapter(private var listener: Listener) :
-    ListAdapter<CategoryModel, RoomCatListAdapter.RoomCatVh>(diff) {
+class CatListAdapter(private var listener: Listener) :
+    ListAdapter<CategoryModel, CatListAdapter.CategoryViewHolder>(diff) {
     companion object {
         val diff = object : DiffUtil.ItemCallback<CategoryModel>() {
             override fun areItemsTheSame(oldItem: CategoryModel, newItem: CategoryModel): Boolean {
@@ -32,7 +32,7 @@ class RoomCatListAdapter(private var listener: Listener) :
         }
     }
 
-    class RoomCatVh(val view: View) : RecyclerView.ViewHolder(view) {
+    class CategoryViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
 
         private var tvCategoryName: TextView? = view.findViewById(R.id.tvCategoryName)
         private var ivCategoryLogo: ImageView? = view.findViewById(R.id.lev)
@@ -49,13 +49,13 @@ class RoomCatListAdapter(private var listener: Listener) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomCatVh {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         var inflater = LayoutInflater.from(parent.context)
             .inflate(R.layout.fragment_category_list_item, parent, false)
-        return RoomCatVh(inflater.rootView)
+        return CategoryViewHolder(inflater.rootView)
     }
 
-    override fun onBindViewHolder(holder: RoomCatVh, position: Int) {
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val item = getItem(position)
         if (item != null) holder.bind(item, listener)
     }

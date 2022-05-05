@@ -1,7 +1,11 @@
-package com.ecoist.market.data.roomdb
+package com.ecoist.market.domain.repository
 
 import com.ecoist.market.data.mapper.ProductMapper
+import com.ecoist.market.data.roomdb.DataBase
+import com.ecoist.market.data.model.ProductModel
+import com.ecoist.market.data.roomdb.networkBoundResource
 import com.ecoist.market.domain.api.ApiService
+import com.ecoist.market.util.Resource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -10,7 +14,7 @@ import kotlinx.coroutines.withContext
 /**
  *Created by Yehor Kudimov on 3/12/2021.
  */
-class ProductRepositoryEco(private val apiService: ApiService) {
+class ProductRepository(private val apiService: ApiService) {
 
     val io: CoroutineDispatcher
         get() = Dispatchers.IO

@@ -1,11 +1,9 @@
 package com.ecoist.market.presentation.product.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -13,8 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
 import com.ecoist.market.R
-import com.ecoist.market.data.model.Product
-import com.ecoist.market.data.roomdb.ProductModel
+import com.ecoist.market.data.model.ProductModel
 import com.ecoist.market.databinding.ProductListItemBinding
 import com.ecoist.market.presentation.product.list.ProductListViewModel
 

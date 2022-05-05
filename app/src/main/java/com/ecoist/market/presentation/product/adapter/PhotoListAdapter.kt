@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ecoist.market.R
-import com.ecoist.market.data.roomdb.PhotoModel
+import com.ecoist.market.data.model.PhotoModel
 
 /**
  *Created by Yehor Kudimov on 11.05.2021.

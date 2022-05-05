@@ -1,4 +1,4 @@
-package com.ecoist.market.data.roomdb
+package com.ecoist.market.util
 
 /**
  *Created by Yehor Kudimov on 7/3/2021.

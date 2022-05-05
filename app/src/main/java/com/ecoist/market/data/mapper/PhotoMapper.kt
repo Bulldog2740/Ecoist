@@ -1,9 +1,7 @@
 package com.ecoist.market.data.mapper
 
-import android.util.Log
-import com.ecoist.market.data.model.Photo
 import com.ecoist.market.data.response.PhotoResponse
-import com.ecoist.market.data.roomdb.PhotoModel
+import com.ecoist.market.data.model.PhotoModel
 
 /**
  *Created by Yehor Kudimov on 18.05.2021.

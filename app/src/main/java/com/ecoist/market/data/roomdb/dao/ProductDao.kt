@@ -1,7 +1,7 @@
 package com.ecoist.market.data.roomdb.dao
 
 import androidx.room.*
-import com.ecoist.market.data.roomdb.ProductModel
+import com.ecoist.market.data.model.ProductModel
 import kotlinx.coroutines.flow.Flow
 
 

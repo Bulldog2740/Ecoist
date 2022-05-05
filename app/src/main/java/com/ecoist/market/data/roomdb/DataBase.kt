@@ -6,6 +6,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ecoist.market.data.model.CategoryModel
+import com.ecoist.market.data.model.PhotoModel
+import com.ecoist.market.data.model.ProductModel
 import com.ecoist.market.data.roomdb.dao.CategoryDao
 import com.ecoist.market.data.roomdb.dao.PhotoDao
 import com.ecoist.market.data.roomdb.dao.ProductDao
