@@ -20,4 +20,5 @@
     <color name="material">#CCFF90</color>
     <color name="material2">#F4FF81</color>
     <color name="material3">#FFFF8D</color>
+    <color name="background_list">#4ECCFF90</color>
 </resources>

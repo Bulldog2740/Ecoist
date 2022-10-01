@@ -37,19 +37,20 @@ data class ProductModel(
     @ColumnInfo(name = "idImage") val idImage: Int?,
     @ColumnInfo(name = "deleted") val deleted: Int?,
     @ColumnInfo(name = "description") val description: String?,
-    @ColumnInfo(name = "imageUrl")val imageUrl: String?,
-    @ColumnInfo(name = "urlForImages") val urlForImages:String?,
+    @ColumnInfo(name = "imageUrl") val imageUrl: String?,
+    @ColumnInfo(name = "urlForImages") val urlForImages: String?,
     @get:Bindable
     var favorites: Boolean = false,
     @get:Bindable
     var bucket: Boolean = false
-):Parcelable,BaseObservable(){
-    fun updateLike(){
-        favorites=!favorites
+) : Parcelable, BaseObservable() {
+    fun updateLike() {
+        favorites = !favorites
         notifyChange()
     }
-    fun updateBucket(){
-        bucket=!bucket
+
+    fun updateBucket() {
+        bucket = !bucket
         notifyChange()
     }
 }

@@ -12,23 +12,16 @@ import kotlinx.coroutines.flow.Flow
 interface ProductDao {
 
     @Query("SELECT * FROM productEco WHERE idCategory = :id")
-    fun findByIdFlowx(id: Long): Flow<List<ProductModel>>
+    fun findByCategoryId(id: Long): Flow<List<ProductModel>>
 
     @Query("SELECT * FROM productEco")
-    fun findAllFlow(): Flow<List<ProductModel>>
+    fun findAll(): Flow<List<ProductModel>>
 
     @Query("SELECT * FROM productEco WHERE id = :id")
-    fun findByIdFlowxOne(id: Long): Flow<ProductModel>
-
-    @Query("SELECT * FROM productEco WHERE id = :id")
-    fun findById(id: Long): ProductModel
-
+    fun findById(id: Long): Flow<ProductModel>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(vararg productEco: ProductModel)
-
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertOne( productEco: ProductModel)
 
     @Delete
     fun delete(vararg productEco: ProductModel)

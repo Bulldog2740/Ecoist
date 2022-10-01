@@ -8,13 +8,13 @@ import com.ecoist.market.di.network.networkModule
 import com.ecoist.market.di.product.productListModule
 import com.ecoist.market.di.product.productModule
 import com.ecoist.market.di.repository.repositoryModule
+import com.ecoist.market.domain.repository.CategoryRepository
+import io.reactivex.schedulers.Schedulers.single
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
-import org.koin.core.context.GlobalContext
-import org.koin.core.context.KoinContextHandler
-import org.koin.core.context.startKoin
-import org.koin.core.context.stopKoin
+import org.koin.core.context.*
 import org.koin.core.logger.Level
+import org.koin.dsl.module
 
 @Keep
 object Koin {

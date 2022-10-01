@@ -5,7 +5,7 @@ import com.ecoist.market.data.model.CategoryModel
 import com.ecoist.market.data.response.CategoryResponse
 import com.ecoist.market.data.roomdb.DataBase
 import com.ecoist.market.util.Resource
-import com.ecoist.market.data.roomdb.networkBoundResource
+import com.ecoist.market.util.networkBoundResource
 import com.ecoist.market.domain.api.ApiService
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
@@ -16,7 +16,6 @@ import kotlinx.coroutines.flow.Flow
 class CategoryRepository(
     private val apiService: ApiService
 ) {
-
 
     companion object {
         /**
@@ -50,7 +49,6 @@ class CategoryRepository(
         return CategoryMapper.mapModel(childCategories)
     }
 
-
     /**
      * Get list with all existed categories on the site.
      *
@@ -59,7 +57,7 @@ class CategoryRepository(
 
     fun getItems(parentId: Long): Flow<Resource<List<CategoryModel>>> {
         return networkBoundResource(
-            query = { dao.getCategoryFlowX(parentId) },
+            query = { dao.getCategoryFlow(parentId) },
             fetch = {
                 apiService.getChildCategories(parentId)
             },

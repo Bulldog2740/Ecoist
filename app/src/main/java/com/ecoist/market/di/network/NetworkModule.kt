@@ -23,7 +23,7 @@ fun networkModule() = module {
     }
     single {
         val okHttpClient = createOkHttpClient(androidApplication())
-        val retrofitTelegram = getBaseRetrofitforTelegram(okHttpClient, androidApplication())
+        val retrofitTelegram = getBaseRetrofitForTelegram(okHttpClient, androidApplication())
         retrofitTelegram.create(ApiServiceTelegram::class.java)
     }
 }
@@ -72,7 +72,7 @@ fun getBaseRetrofit(okHttpClient: OkHttpClient.Builder, context: Context): Retro
     return getRetrofit(context, okHttpClient, BuildConfig.API_BASE_URL)
 }
 
-fun getBaseRetrofitforTelegram(okHttpClient: OkHttpClient.Builder, context: Context): Retrofit {
+fun getBaseRetrofitForTelegram(okHttpClient: OkHttpClient.Builder, context: Context): Retrofit {
     val iterator = okHttpClient.interceptors().iterator()
     while (iterator.hasNext()) {
         val interceptor = iterator.next()

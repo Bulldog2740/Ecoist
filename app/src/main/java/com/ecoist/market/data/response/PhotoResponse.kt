@@ -16,4 +16,4 @@ data class PhotoResponse(
     @SerializedName("gOrder") val gOrder: Int?,
     @SerializedName("height") val height: Int?,
     @SerializedName("width") val width: Int?
-    ) : Parcelable
+) : Parcelable

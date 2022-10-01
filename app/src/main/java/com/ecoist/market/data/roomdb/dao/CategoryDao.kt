@@ -6,7 +6,6 @@ import androidx.room.*
 import com.ecoist.market.data.model.CategoryModel
 import kotlinx.coroutines.flow.Flow
 
-
 /**
  *Created by Yehor Kudimov on 3/12/2021.
  */
@@ -23,13 +22,12 @@ interface CategoryDao {
     fun getCategory(): List<CategoryModel>
 
     @Query("SELECT * FROM category WHERE idParent= :id")
-    fun getCategoryFlowX(id:Long): Flow<List<CategoryModel>>
-
+    fun getCategoryFlow(id: Long): Flow<List<CategoryModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun insert(vararg category: CategoryModel)
+    suspend fun insert(vararg category: CategoryModel)
 
     @Delete
-   suspend fun delete(vararg category: CategoryModel)
+    suspend fun delete(vararg category: CategoryModel)
 
 }

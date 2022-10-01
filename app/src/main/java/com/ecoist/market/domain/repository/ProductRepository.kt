@@ -3,7 +3,7 @@ package com.ecoist.market.domain.repository
 import com.ecoist.market.data.mapper.ProductMapper
 import com.ecoist.market.data.roomdb.DataBase
 import com.ecoist.market.data.model.ProductModel
-import com.ecoist.market.data.roomdb.networkBoundResource
+import com.ecoist.market.util.networkBoundResource
 import com.ecoist.market.domain.api.ApiService
 import com.ecoist.market.util.Resource
 import kotlinx.coroutines.CoroutineDispatcher
@@ -25,7 +25,7 @@ class ProductRepository(private val apiService: ApiService) {
 
     fun getProductById(parentId: Long): Flow<Resource<List<ProductModel>>> {
         return networkBoundResource(
-            query = { dao.findByIdFlowx(parentId) },
+            query = { dao.findByCategoryId(parentId) },
             fetch = {
                 apiService.getProductByIdOfCategory(parentId)
             },
@@ -36,7 +36,7 @@ class ProductRepository(private val apiService: ApiService) {
     }
     fun getProductByIdOne(id: Long): Flow<Resource<ProductModel>> {
         return networkBoundResource(
-            query = { dao.findByIdFlowxOne(id) },
+            query = { dao.findById(id) },
             fetch = {
                 apiService.getProductById(id)
             },
@@ -46,7 +46,7 @@ class ProductRepository(private val apiService: ApiService) {
         )
     }
     fun getProducts():Flow<List<ProductModel>>{
-        return dao.findAllFlow()
+        return dao.findAll()
     }
 
     suspend fun saveModel(model: ProductModel) = withContext(io) {

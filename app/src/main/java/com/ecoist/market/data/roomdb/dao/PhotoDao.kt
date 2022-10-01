@@ -4,7 +4,6 @@ import androidx.room.*
 import com.ecoist.market.data.model.PhotoModel
 import kotlinx.coroutines.flow.Flow
 
-
 /**
  *Created by Yehor Kudimov on 3/05/2021.
  */

@@ -1,10 +1,8 @@
 package com.ecoist.market.util
 
-import android.animation.ArgbEvaluator
-import android.animation.ValueAnimator
-import android.view.View
-import android.view.WindowInsets
+import android.text.Spanned
 import android.widget.ImageView
+import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 import androidx.navigation.NavController
 import com.bumptech.glide.Glide
@@ -22,12 +20,15 @@ fun NavController.popBackStackAllInstances(destination: Int, inclusive: Boolean)
     return popped
 }
 
-@BindingAdapter(value = ["setLikeFLOAT"])
-fun FloatingActionButton.setLikeFLOAT(isLove: Boolean) {
+@BindingAdapter(value = ["setLike"])
+fun ImageView.setLike(isLove: Boolean) {
     if (isLove) {
-
         Glide.with(context).load(R.drawable.favorlike).into(this)
     } else {
         Glide.with(context).load(R.drawable.favornewno).into(this)
     }
+}
+
+fun String.fromHtml(): Spanned {
+    return HtmlCompat.fromHtml(this, HtmlCompat.FROM_HTML_MODE_LEGACY)
 }

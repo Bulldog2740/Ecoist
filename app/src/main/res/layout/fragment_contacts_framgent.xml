@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="84dp"
         android:background="@drawable/baseline_settings_phone_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
+        android:autoLink="web"
         android:clickable="true"
         android:focusable="true"
         android:text="@string/tg_ecoistukraine"
@@ -47,26 +48,23 @@
 
     <ImageView
         android:id="@+id/touch"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="44dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/baseline_touch_app_24"
         android:clickable="true"
         android:focusable="true"
-        android:text="TG:@ecoistukraine"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/number" />
 
     <ImageView
-        android:id="@+id/backgrcont"
+        android:id="@+id/background"
         android:layout_width="wrap_content"
         android:layout_height="350dp"
         android:background="@drawable/backgr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,5 @@
-package com.ecoist.market.data.roomdb
+package com.ecoist.market.util
 
-import com.ecoist.market.util.Resource
 import kotlinx.coroutines.flow.*
 
 /**

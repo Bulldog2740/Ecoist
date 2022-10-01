@@ -19,6 +19,7 @@ import com.ecoist.market.data.model.ProductModel
 import com.ecoist.market.util.Resource
 import com.ecoist.market.databinding.FragmentProductBinding
 import com.ecoist.market.presentation.product.adapter.PhotoListAdapter
+import com.ecoist.market.util.fromHtml
 import org.koin.android.ext.android.inject
 
 class ProductFragment : Fragment() {
@@ -27,16 +28,6 @@ class ProductFragment : Fragment() {
     private val viewModel: ProductViewModel by inject()
     private val productObserver = Observer(::handleProduct)
     private val photoObserver = Observer<Resource<List<PhotoModel>>>(::handlePhoto)
-    private var recyclerView: RecyclerView? = null
-    private var tvProductName: TextView? = null
-    private var tvProductDescription: TextView? = null
-    private var tvProductDescriptionFull: TextView? = null
-    private var tvProductPrice: TextView? = null
-    private var tvProductPriceCena: TextView? = null
-    private var tvComment: TextView? = null
-    private var tvTextX: TextView? = null
-    private var tvComentX: TextView? = null
-    private var tvProductTextFullX: TextView? = null
     private val listAdapter = PhotoListAdapter()
 
     override fun onCreateView(
@@ -59,18 +50,8 @@ class ProductFragment : Fragment() {
         bind.nablike.setOnClickListener {
             viewModel.checkFav(args.product)
         }
-        tvProductName = view.findViewById(R.id.tvProductName)
-        tvProductDescriptionFull = view.findViewById(R.id.tvProductTextFull)
-        tvProductDescription = view.findViewById(R.id.tvText)
-        tvProductPrice = view.findViewById(R.id.price)
-        tvProductPriceCena = view.findViewById(R.id.priceName)
-        tvComment = view.findViewById(R.id.tvComment)
-        tvProductTextFullX = view.findViewById(R.id.tvProductTextFullX)
-        tvTextX = view.findViewById(R.id.tvTextX)
-        tvComentX = view.findViewById(R.id.tvComentX)
-        recyclerView = view.findViewById(R.id.photo_recycler)
-        recyclerView?.adapter = listAdapter
-        recyclerView?.layoutManager =
+        bind.photoRecycler.adapter = listAdapter
+        bind.photoRecycler.layoutManager =
             LinearLayoutManager(view.context, RecyclerView.HORIZONTAL, false)
         viewModel.product(str).observe(viewLifecycleOwner, productObserver)
         viewModel.photo(args.product.galleryName).observe(viewLifecycleOwner) {
@@ -81,20 +62,15 @@ class ProductFragment : Fragment() {
 
     private fun handleProduct(product: Resource<ProductModel>?) {
         if (product == null) return
-        tvProductName?.text = product.data?.name
-        tvProductPrice?.text = product.data?.price
-        tvProductDescriptionFull?.text = product.data?.descriptionFull?.fromHtml()?.trim()
-        tvProductDescription?.text = product.data?.description?.fromHtml()?.trim()
-        tvComment?.text = product.data?.coment?.fromHtml()?.trim()
+        bind.tvProductName.text = product.data?.name
+        bind.price.text = product.data?.price
+        bind.tvProductTextFull.text = product.data?.descriptionFull?.fromHtml()?.trim()
+        bind.tvText.text = product.data?.description?.fromHtml()?.trim()
+        bind.tvComment.text = product.data?.coment?.fromHtml()?.trim()
     }
 
     private fun handlePhoto(ph: Resource<List<PhotoModel>>?) {
         if (ph == null) return
         listAdapter.submitList(ph.data)
     }
-
-    private fun String.fromHtml(): Spanned {
-        return HtmlCompat.fromHtml(this, HtmlCompat.FROM_HTML_MODE_LEGACY)
-    }
-
 }

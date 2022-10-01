@@ -39,7 +39,6 @@ class SplashFragment : Fragment() {
                 val action =
                     SplashFragmentDirections.actionSplashFragmentToCategoryMainListFragment()
                 findNavController().navigate(action)
-
             }
         }
     }

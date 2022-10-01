@@ -3,7 +3,7 @@ package com.ecoist.market.domain.repository
 import com.ecoist.market.data.mapper.PhotoMapper
 import com.ecoist.market.data.model.PhotoModel
 import com.ecoist.market.data.roomdb.DataBase
-import com.ecoist.market.data.roomdb.networkBoundResource
+import com.ecoist.market.util.networkBoundResource
 import com.ecoist.market.domain.api.ApiService
 import com.ecoist.market.util.Resource
 import kotlinx.coroutines.CoroutineDispatcher

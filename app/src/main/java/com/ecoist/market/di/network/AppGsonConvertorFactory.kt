@@ -9,7 +9,6 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import java.lang.reflect.Type
 
-
 class AppGsonConvertorFactory(
     private val gson: Gson,
     private val context: Context

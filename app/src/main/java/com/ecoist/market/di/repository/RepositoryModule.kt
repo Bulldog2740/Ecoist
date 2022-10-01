@@ -9,7 +9,6 @@ import org.koin.dsl.module
 fun repositoryModule() = module {
     factory { CategoryRepository(get()) }
     factory { TelegramRepository(get()) }
-    factory { CategoryRepository(get()) }
-   factory { PhotoRepository(get()) }
-   factory { ProductRepository(get()) }
+    factory { PhotoRepository(get()) }
+    factory { ProductRepository(get()) }
 }

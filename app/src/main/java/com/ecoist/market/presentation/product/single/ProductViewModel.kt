@@ -14,25 +14,25 @@ import kotlinx.coroutines.launch
  */
 class ProductViewModel(
     application: Application,
-    private val repos: ProductRepository,
-    private val reposik: PhotoRepository
+    private val productRepos: ProductRepository,
+    private val photoRepository: PhotoRepository
 ) :
     BaseViewModel(application) {
 
-    fun product(id: Long) = repos.getProductByIdOne(id).asLiveData()
+    fun product(id: Long) = productRepos.getProductByIdOne(id).asLiveData()
 
-    fun photo(id: String?) = reposik.listPhoto(id).asLiveData()
+    fun photo(id: String?) = photoRepository.listPhoto(id).asLiveData()
     fun checkFav(product: ProductModel) {
         product.updateLike()
         viewModelScope.launch {
-            repos.saveModel(product)
+            productRepos.saveModel(product)
         }
     }
 
     fun buyProduct(product: ProductModel) {
         product.updateBucket()
         viewModelScope.launch {
-            repos.saveModel(product)
+            productRepos.saveModel(product)
         }
     }
 }

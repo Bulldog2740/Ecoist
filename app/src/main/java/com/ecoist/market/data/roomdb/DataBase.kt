@@ -1,4 +1,3 @@
-
 package com.ecoist.market.data.roomdb
 
 import android.content.Context
@@ -24,6 +23,7 @@ abstract class DataBase : RoomDatabase() {
     abstract fun getProductDao(): ProductDao
     abstract fun getPhotoDao(): PhotoDao
     abstract fun getCategoryDao(): CategoryDao
+
     companion object {
         var instance: DataBase? = null
         fun init(context: Context) {

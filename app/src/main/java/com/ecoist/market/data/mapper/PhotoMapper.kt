@@ -13,7 +13,6 @@ object PhotoMapper {
             .map { photoModel -> mapSinglePhoto(photoModel) }
     }
 
-
     fun mapSinglePhoto(photoResponse: PhotoResponse): PhotoModel {
         //val imageUrl: String? = "https://ecoist.com.ua/gallery/"+productResponse.galleryName+"/image_"+productResponse.idImage+"_120_120.jpg"
         //  val imageUrlArray: String? = "https://ecoist.com.ua/gallery/"+productResponse.galleryName+"/image_"+productResponse.idImage+"_120_120.jpg"

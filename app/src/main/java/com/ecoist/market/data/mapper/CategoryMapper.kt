@@ -11,13 +11,10 @@ object CategoryMapper {
                 // Exclude non-active categories
                 it.isPublic == 1
             }
-            .map { category -> mapToRoom(category) }
+            .map { category -> map(category) }
     }
 
-    private fun mapToRoom(categoryResponse: CategoryResponse): CategoryModel {
-        /**
-         * Need good api source of images, now only hardcode only hardcore
-         */
+    private fun map(categoryResponse: CategoryResponse): CategoryModel {
         return CategoryModel(
             id = categoryResponse.id,
             idParent = categoryResponse.idParent,
@@ -32,12 +29,12 @@ object CategoryMapper {
             show_mods = categoryResponse.show_mods,
             isPublic = categoryResponse.isPublic,
             show_links = categoryResponse.show_links,
-            image = makeUrlForImageHardCore(categoryResponse)
+            image = makeUrlImage(categoryResponse)
         )
     }
 
 
-    fun makeUrlForImageHardCore(categoryResponse: CategoryResponse): String {
+    fun makeUrlImage(categoryResponse: CategoryResponse): String {
         /**
          * Need good api source of images, now only hardcode only hardcore
          */

@@ -43,13 +43,13 @@ class Bucket : BaseBottomTabFragment(), ProductListAdapter.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerBucket.adapter = adapter
-        binding.recyclerBucket.layoutManager =
+        binding.recycler.adapter = adapter
+        binding.recycler.layoutManager =
             LinearLayoutManager(view.context, RecyclerView.VERTICAL, false)
         lifecycleScope.launch(Dispatchers.Main) {
             viewModel.bucket().collect { adapter.submitList(it) }
         }
-        binding.buttonBucketBuy.setOnClickListener{
+        binding.buttonBucket.setOnClickListener{
             findNavController().navigate(BucketDirections.actionBucketFragmentToSayYourName())
         }
     }
@@ -65,9 +65,4 @@ class Bucket : BaseBottomTabFragment(), ProductListAdapter.Listener {
             viewModel.checkFav(product)
         }
     }
-    data class LilProduct(
-        var alias:String?,
-        var price:String?,
-        var urlFoto:String?,
-    )
 }

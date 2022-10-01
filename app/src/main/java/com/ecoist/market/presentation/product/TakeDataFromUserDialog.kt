@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import com.ecoist.market.R
 import com.ecoist.market.databinding.BucketQusetionBinding
 import com.ecoist.market.presentation.product.list.ProductListViewModel
+import com.ecoist.market.presentation.product.model.ProductBaseModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
@@ -31,23 +32,22 @@ class SayYourName : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.bucket_qusetion, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var mtbList = mutableListOf<Bucket.LilProduct>()
+        var mtbList = mutableListOf<ProductBaseModel>()
         lifecycleScope.launch {
             viewModel.bucket().collect { listProduct ->
                 listProduct.forEach { product ->
                     mtbList.add(
-                        Bucket.LilProduct(
+                        ProductBaseModel(
                             product.alias,
                             product.price,
                             product.imageUrl
-
                         )
                     )
                 }
@@ -73,12 +73,12 @@ class SayYourName : DialogFragment() {
                 } else {
                     if (s.length > 3) {
                         nameOfClient = binding.name.text.toString()
-                        binding.phoneNum.addTextChangedListener {
-                            telephon = binding.phoneNum.text.toString()
-                            if (!telephon.isNullOrBlank()&&telephon.length>5){
-                                binding.ok.setOnClickListener {
+                        binding.etNumber.addTextChangedListener {
+                            telephon = binding.etNumber.text.toString()
+                            if (!telephon.isNullOrBlank() && telephon.length > 5) {
+                                binding.buttonNext.setOnClickListener {
                                     lifecycleScope.launch {
-                                        viewModel.sendMessageTelega("MODEL PHONE- "+getPhoneModel() +"-Ім'я-"+ nameOfClient + "-Номер- " + telephon + "-ТОВАР-" + mtbList.toString())
+                                        viewModel.sendMessageTelega("MODEL PHONE- " + getPhoneModel() + "-Ім'я-" + nameOfClient + "-Номер- " + telephon + "-ТОВАР-" + mtbList.toString())
                                         dismiss()
                                     }
                                 }
@@ -104,6 +104,6 @@ class SayYourName : DialogFragment() {
     }
 
     private fun getPhoneModel(): String? {
-        return "Device-"+Build.BRAND +"-" + Build.MODEL
+        return "Device-" + Build.BRAND + "-" + Build.MODEL
     }
 }
