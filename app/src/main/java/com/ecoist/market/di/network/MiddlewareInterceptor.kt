@@ -1,5 +1,6 @@
 package com.ecoist.market.di.network
 
+import com.google.gson.Gson
 import okhttp3.Interceptor
 import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
@@ -17,17 +18,15 @@ class MiddlewareInterceptor : Interceptor {
 
         if (response.code == 200) {
             try {
-
                 // Handle middleware errors here
-
-               /* val errorResponse = try {
-                    Gson().fromJson(bodyString, ErrorResponse::class.java)
-                } catch (throwable: Throwable) {
-                    null
-                }
-                if (errorResponse?.error != null) {
-                    // send broadcast
-                }*/
+                 val errorResponse = try {
+                     Gson().fromJson(bodyString, ErrorResponse::class.java)
+                 } catch (throwable: Throwable) {
+                     null
+                 }
+                 if (errorResponse?.error != null) {
+                     // send broadcast
+                 }
             } catch (e: Throwable) {
                 e.printStackTrace()
             }

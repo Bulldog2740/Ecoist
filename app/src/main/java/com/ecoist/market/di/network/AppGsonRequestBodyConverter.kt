@@ -11,7 +11,6 @@ import java.io.IOException
 import java.io.OutputStreamWriter
 import java.nio.charset.Charset
 
-
 class AppGsonRequestBodyConverter<T>(
     private val json: Gson,
     private val typeAdapter: TypeAdapter<T>

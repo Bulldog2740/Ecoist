@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         AppLogger.debug(TAG, "onCreate()")
         val navHostFr = findNavController(R.id.navHostFragment)
-        DataBase.init(applicationContext)
         val bottom = findViewById<BottomNavigationView>(R.id.bottom_nav)
         navHostFr.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id == R.id.splashFragment) {

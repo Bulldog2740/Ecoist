@@ -5,21 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ecoist.market.R
 import com.ecoist.market.data.model.ProductModel
 import com.ecoist.market.databinding.FavoritesFragmentBinding
+import com.ecoist.market.presentation.base.BaseBottomTabFragment
 import com.ecoist.market.presentation.product.adapter.ProductListAdapter
 import com.ecoist.market.presentation.product.list.ProductListViewModel
-import org.koin.android.ext.android.inject
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.ecoist.market.presentation.base.BaseBottomTabFragment
 import com.ecoist.market.util.oneTimeCoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 /**
  *Created by Yehor Kudimov on 7/26/2021.

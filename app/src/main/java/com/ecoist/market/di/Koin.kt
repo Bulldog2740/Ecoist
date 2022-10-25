@@ -7,14 +7,11 @@ import com.ecoist.market.di.category.categoryMainListModule
 import com.ecoist.market.di.network.networkModule
 import com.ecoist.market.di.product.productListModule
 import com.ecoist.market.di.product.productModule
-import com.ecoist.market.di.repository.repositoryModule
-import com.ecoist.market.domain.repository.CategoryRepository
-import io.reactivex.schedulers.Schedulers.single
+import com.ecoist.market.di.repository.dataBaseModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.*
 import org.koin.core.logger.Level
-import org.koin.dsl.module
 
 @Keep
 object Koin {
@@ -29,7 +26,7 @@ object Koin {
 
         val modules = listOf(
             networkModule(),
-            repositoryModule(),
+            dataBaseModule(),
             categoryMainListModule(),
             categoryCommonListModule(),
             productListModule(),

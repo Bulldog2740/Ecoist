@@ -3,18 +3,20 @@ package com.ecoist.market.domain.repository
 import com.ecoist.market.data.mapper.CategoryMapper
 import com.ecoist.market.data.model.CategoryModel
 import com.ecoist.market.data.response.CategoryResponse
-import com.ecoist.market.data.roomdb.DataBase
+import com.ecoist.market.data.roomdb.dao.CategoryDao
+import com.ecoist.market.domain.api.ApiService
 import com.ecoist.market.util.Resource
 import com.ecoist.market.util.networkBoundResource
-import com.ecoist.market.domain.api.ApiService
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 
 /**
  *Created by Yehor Kudimov on 3/12/2021.
  */
 class CategoryRepository(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val dao: CategoryDao
 ) {
 
     companion object {
@@ -24,10 +26,6 @@ class CategoryRepository(
         private const val TOP_LEVEL_CATEGORY_PARENT_ID: Long = 1
     }
 
-    /**
-     * Get db instance
-     */
-    val dao = DataBase.instance!!.getCategoryDao()
 
     /**
      * Get top level [CategoryResponse]'s as on the site.

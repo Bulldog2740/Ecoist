@@ -1,12 +1,9 @@
 package com.ecoist.market.presentation.product.single
 
 import android.os.Bundle
-import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.text.HtmlCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ecoist.market.R
 import com.ecoist.market.data.model.PhotoModel
 import com.ecoist.market.data.model.ProductModel
-import com.ecoist.market.util.Resource
 import com.ecoist.market.databinding.FragmentProductBinding
 import com.ecoist.market.presentation.product.adapter.PhotoListAdapter
+import com.ecoist.market.util.Resource
 import com.ecoist.market.util.fromHtml
 import org.koin.android.ext.android.inject
 

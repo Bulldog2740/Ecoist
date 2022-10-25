@@ -1,15 +1,12 @@
 package com.ecoist.market.di.network
 
-import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.JsonIOException
 import com.google.gson.TypeAdapter
 import com.google.gson.stream.JsonToken
-import okhttp3.*
-import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.ResponseBody
 import retrofit2.Converter
 import java.io.IOException
-
 
 class AppGsonResponseBodyConverter<T>(
     private val gson: Gson,

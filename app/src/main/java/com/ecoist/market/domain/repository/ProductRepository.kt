@@ -3,6 +3,7 @@ package com.ecoist.market.domain.repository
 import com.ecoist.market.data.mapper.ProductMapper
 import com.ecoist.market.data.roomdb.DataBase
 import com.ecoist.market.data.model.ProductModel
+import com.ecoist.market.data.roomdb.dao.ProductDao
 import com.ecoist.market.util.networkBoundResource
 import com.ecoist.market.domain.api.ApiService
 import com.ecoist.market.util.Resource
@@ -14,14 +15,13 @@ import kotlinx.coroutines.withContext
 /**
  *Created by Yehor Kudimov on 3/12/2021.
  */
-class ProductRepository(private val apiService: ApiService) {
+class ProductRepository(private val apiService: ApiService,
+private val dao:ProductDao) {
 
     val io: CoroutineDispatcher
         get() = Dispatchers.IO
     val main: CoroutineDispatcher
         get() = Dispatchers.Main
-
-    private val dao = DataBase.instance!!.getProductDao()
 
     fun getProductById(parentId: Long): Flow<Resource<List<ProductModel>>> {
         return networkBoundResource(

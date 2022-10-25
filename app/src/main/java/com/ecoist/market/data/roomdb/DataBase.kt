@@ -1,8 +1,6 @@
 package com.ecoist.market.data.roomdb
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ecoist.market.data.model.CategoryModel
 import com.ecoist.market.data.model.PhotoModel
@@ -23,13 +21,4 @@ abstract class DataBase : RoomDatabase() {
     abstract fun getProductDao(): ProductDao
     abstract fun getPhotoDao(): PhotoDao
     abstract fun getCategoryDao(): CategoryDao
-
-    companion object {
-        var instance: DataBase? = null
-        fun init(context: Context) {
-            instance = Room.databaseBuilder(
-                context, DataBase::class.java, "eco_db"
-            ).build()
-        }
-    }
 }
