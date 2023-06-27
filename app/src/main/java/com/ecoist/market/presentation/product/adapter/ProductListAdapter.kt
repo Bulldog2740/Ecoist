@@ -47,8 +47,7 @@ class ProductListAdapter(
         private var tvProductName: TextView? = view.tvProductName
         private var tvProductTextView: TextView? = view.priceItems
         private val productImage: ImageView? = itemView.findViewById(R.id.product_image_view_Item)
-        private val like = view.likoc
-        private val bucket = view.addBucket
+        private val like = view.like
         init {
             view.viewModel = viewModel
         }
