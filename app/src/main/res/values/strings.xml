@@ -33,4 +33,6 @@
     <string name="say_your_name">Ваше ім\'я:</string>
     <string name="your_number">Ваш номер:</string>
     <string name="ok">OK</string>
+    <string name="favorites">Favorites</string>
+    <string name="home">Home</string>
 </resources>

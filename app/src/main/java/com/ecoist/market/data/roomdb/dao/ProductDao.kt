@@ -4,7 +4,6 @@ import androidx.room.*
 import com.ecoist.market.data.model.ProductModel
 import kotlinx.coroutines.flow.Flow
 
-
 /**
  *Created by Yehor Kudimov on 3/12/2021.
  */
@@ -22,6 +21,7 @@ interface ProductDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(vararg productEco: ProductModel)
+
 
     @Delete
     fun delete(vararg productEco: ProductModel)
